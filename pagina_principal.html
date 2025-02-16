@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para o Meu Amor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #8B0000;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CiAgPHBhdGggZD0iTTEwIDMuNUM3LjUgMy41IDUuNSA1LjUgNS41IDhDNS41IDEwLjUgMTAgMTQuNSAxMCAxNC41QzEwIDE0LjUgMTQuNSAxMC41IDE0LjUgOEMxNC41IDUuNSAxMi41IDMuNSAxMCAzLjVaIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiLz4KPC9zdmc+');
+            color: #333;
+            overflow-y: auto;
+            text-align: center;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        header {
+            padding: 30px 10px;
+            color: #fff;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            animation: float 3s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.95);
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #8B0000;
+        }
+
+        ul {
+            list-style: none;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin: 8px 0;
+            position: relative;
+            padding-left: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        ul li:hover {
+            transform: translateX(10px);
+        }
+
+        ul li::before {
+            content: '♥';
+            position: absolute;
+            left: 0;
+            color: #8B0000;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .circle-img {
+            width: 150px;
+            height: 150px;
+            background: url('img1.jpg') no-repeat center/cover;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+        }
+
+        #fotos {
+            text-align: center;
+        }
+
+        .photo-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px auto;
+        }
+
+        #fotos img {
+            width: 45%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        #fotos img:hover {
+            transform: scale(1.05);
+        }
+
+        #fotos p {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        
+
+        #mensagem-secreta input {
+            padding: 10px;
+            border: 2px solid #8B0000;
+            border-radius: 5px;
+            margin: 10px auto;
+            width: 200px;
+            display: block;
+        }
+
+        #mensagem-secreta button {
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 10px auto;
+        }
+
+        #mensagem-secreta button:hover {
+            background-color: #660000;
+            transform: scale(1.1);
+        }
+
+        #modo-surpresa {
+            background-color: #fff;
+            color: #8B0000;
+            border: 2px solid #8B0000;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        #modo-surpresa:hover {
+            background-color: #8B0000;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: none;
+            z-index: 9999;
+        }
+
+        .overlay img {
+            max-width: 80%;
+            max-height: 80vh;
+            border-radius: 10px;
+        }
+
+        #mensagem-romantica {
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            font-family: 'Dancing Script';
+            margin-top: 15px;
+        }
+
+        .heart {
+            position: fixed;
+            left: 50%;
+            font-size: 2rem;
+            animation: subir 3s linear infinite;
+            opacity: 0;
+            z-index: 999;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -100vh);
+                opacity: 0;
+            }
+        }
+
+        .floating-emoji {
+            position: fixed;
+            font-size: 1.5rem;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>Para o meu amor</header>
+
+    <section id="coisas-que-amo">
+        <h2>Coisas que amo em você</h2>
+        <ul id="lista-amor"></ul>
+    </section>
+
+    <section id="porque-amo">
+        <h2>Por que amo essas coisas?</h2>
+        <ul id="lista-explicacao"></ul>
+    </section>
+
+    <section id="fotos">
+    <h2>Fotos que eu tenho (infelizmente só algumas)</h2>
+    <div class="photo-container">
+        <img src="foto1.jpeg" alt="Momento feliz">
+        <img src="foto2.jpeg" alt="Outro momento feliz">
+    </div>
+    <p>OBS: NÃO TINHA MAIS FOTO PRA COLOCA 😭😭</p>
+    </section>
+
+    <section id="mensagem-secreta">
+        <h2>Mensagem Especial</h2>
+        <p>Dica: O sentimento mais puro que compartilhamos.</p>
+        <input type="text" id="resposta" placeholder="Digite a resposta..." />
+        <button onclick="verificarResposta()">Enviar</button>
+        <p id="resultado"></p>
+    </section>
+
+    <button id="modo-surpresa" onclick="ativarSurpresa()">Modo Surpresa</button>
+
+    <div class="overlay" id="overlay" onclick="fecharSurpresa()">
+        <img src="gato2.jpeg" alt="Surpresa especial">
+        <p id="mensagem-romantica">Eu te amo muito! Você é o amor da minha vida! ❤️</p>
+    </div>
+
+    <script>
+        const motivos = [
+            'Seu sorriso que ilumina tudo!',
+            'Você me faz sentir especial.',
+            'Seu amor me completa.',
+            'Amo seus abraços',
+            'Esse seu humor quebrado'
+        ];
+
+        const explicacoes = [
+            'Porque ele é a coisa mais linda que existe',
+            'Porque você tem um jeito único de me fazer sentir especial',
+            'Porque eu sinto que é algo real',
+            'Porque quando estou nos seus braços, sinto que não preciso de mais nada.',
+            'Porque a gente parece muito (os dois com humor negro)'
+        ];
+
+        window.onload = () => {
+            const listaAmor = document.getElementById('lista-amor');
+            const listaExplicacao = document.getElementById('lista-explicacao');
+
+            motivos.forEach((motivo, index) => {
+                const liMotivo = document.createElement('li');
+                liMotivo.textContent = motivo;
+                listaAmor.appendChild(liMotivo);
+
+                const liExplicacao = document.createElement('li');
+                liExplicacao.textContent = explicacoes[index];
+                liExplicacao.style.fontStyle = 'italic';
+                listaExplicacao.appendChild(liExplicacao);
+            });
+
+            // Inicia os emojis flutuantes
+            criarEmojisFlutuantes();
+        };
+
+        function verificarResposta() {
+            const resposta = document.getElementById('resposta').value.toLowerCase().trim();
+            const resultado = document.getElementById('resultado');
+            if (resposta === 'amor') {
+                resultado.textContent = 'Sim! Nosso amor é infinito e eterno! 💖';
+                // Adiciona chuva de corações quando acerta
+                for (let i = 0; i < 20; i++) {
+                    criarCoraçao();
+                }
+            } else {
+                resultado.textContent = 'Ainda não... mas eu sei que você sabe a resposta! 💭';
+            }
+        }
+
+        function ativarSurpresa() {
+            document.getElementById('overlay').style.display = 'flex';
+            for (let i = 0; i < 20; i++) {
+                criarCoraçao();
+            }
+            document.getElementById('mensagem-romantica').style.display = 'block';
+        }
+
+        function criarCoraçao() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }
+
+        function fecharSurpresa() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Função para criar emojis flutuantes
+        function criarEmojisFlutuantes() {
+            const emojis = []; //Adicionar emoji
+
+            setInterval(() => {
+                const emoji = document.createElement('div');
+                emoji.className = 'floating-emoji';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * 100 + 'vw';
+                emoji.style.top = -30 + 'px';
+                document.body.appendChild(emoji);
+
+                const animation = emoji.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: 6000,
+                    easing: 'linear'
+                });
+
+                animation.onfinish = () => emoji.remove();
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>

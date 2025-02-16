@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Um Momento Especial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: linear-gradient(135deg, #800020, #4a0011);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      text-align: center;
+      padding: 40px;
+      background: rgba(139, 0, 0, 0.15);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+      color: #ffe4e1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      font-weight: 400;
+      color: #ffe4e1;
+    }
+
+    .botao-entrar {
+      background: transparent;
+      color: #fff;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      border: 2px solid #ffe4e1;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .botao-entrar:hover {
+      background: #ffe4e1;
+      color: #800020;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .botao-entrar:active {
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container > * {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    .container > *:nth-child(2) { animation-delay: 0.2s; }
+    .container > *:nth-child(3) { animation-delay: 0.4s; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      p { font-size: 1.2rem; }
+      .container { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Supresa</h1>
+    <p>Fiz esse site pra mostra o quanto <strong>eu te amo</strong>, deve ter alguns erros, mas relva isso, só clica no botão</p>
+    <button class="botao-entrar" onclick="irParaPaginaPrincipal()">Revelar site</button>
+  </div>
+
+  <script>
+    function irParaPaginaPrincipal() {
+      window.location.href = "pagina_principal.html";
+    }
+  </script>
+</body>
+</html>
